@@ -7,13 +7,13 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 //importing routes 
 const weatherRoute = require('./routes/weatherData');
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 //Import database 
@@ -25,14 +25,11 @@ mongoose
     .catch(err => console.log('Database not connected'));
 
 app.get('/', (req, res) => {
-    res.render('index')
-})
-
-//test route
-app.get('/', (req, res) => {
-    res.send('Server is running');
+    res.render('index');
 });
 
-app.use('/get', weatherRoute);
+app.use('/', weatherRoute);
 
 app.listen(port, () => console.log(`Server is running at ${port}`));
+
+//api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}

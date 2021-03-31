@@ -5,19 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     
 </head>
 <body>
     <div class="container">
         <fieldset>
-        <form action="" method="POST">
+        <form action="/weatherData" method="POST">
             <div class="form-group">
             <input type="text" name="city" class="form-control">
+            
         </div>
             <button type="submit" class="btn btn-success">Get Weather</button>
-            <p></p>
+            <p id="description">Today is</p>
         </form>
     </fieldset>
     </div>
