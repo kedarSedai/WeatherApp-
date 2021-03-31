@@ -1,26 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
-</head>
-<body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weather</title>
+  </head>
+  <body>
     <div class="container">
-        <fieldset>
-        <form action="/weatherData" method="POST">
-            <div class="form-group">
-            <input type="text" name="city" class="form-control">
-            
-        </div>
-            <button type="submit" class="btn btn-success">Get Weather</button>
-            <p id="description">Today is</p>
+      <fieldset>
+        <form action="/" method="post">
+          <input name="city" type="text" placeholder="Enter a City" required>
+          <input type="submit" value="Get Weather">
         </form>
-    </fieldset>
+        <% if(weather !== null){ %>
+          <p><%= weather %></p>
+        <% } %>
+
+        <% if(error !== null){ %>
+          <p><%= error %></p>
+        <% } %>
+      </fieldset>
     </div>
-</body>
+  </body>
 </html>

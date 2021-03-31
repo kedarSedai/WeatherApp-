@@ -19,13 +19,15 @@ app.use(bodyParser.json());
 //Import database 
 const db = require('./dbSetup/dbSetup').mongoURI;
 
-mongoose
-    .connect(db, {useCreateIndex:true, useNewUrlParser:true, useUnifiedTopology:true})
-    .then(() => console.log('Database connected'))
-    .catch(err => console.log('Database not connected'));
+// mongoose
+//     .connect(db, {useCreateIndex:true, useNewUrlParser:true, useUnifiedTopology:true})
+//     .then(() => console.log('Database connected'))
+//     .catch(err => console.log('Database not connected'));
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', {weather: null, error: null});
+    let API = process.env.API_KEY;
+    console.log(process.env.API_KEY);
 });
 
 app.use('/', weatherRoute);
